@@ -15,9 +15,15 @@ namespace Chiritori
         public float y; // y座標
         public float angle; // 向き（ラジアン。右が0で時計回り）
 
+        int button; // このチリトリーが反応するボタンID
+        int image; // このチリトリーが使う画像のハンドル
+
         // コンストラクタ。初期化処理を行う。
-        public Chiritori()
+        public Chiritori(int button, int image)
         {
+            this.button = button;
+            this.image = image;
+
             // 位置をランダムに初期化
             x = MyRandomcs.Range(0, Screen.Width);
             y = MyRandomcs.Range(0, Screen.Height);
@@ -29,7 +35,7 @@ namespace Chiritori
         // 更新処理
         public void Update()
         {
-            if (Input.GetButton(DX.PAD_INPUT_1))
+            if (Input.GetButton(button))
             {
                 // ボタンが押されていたら、向いている方向へ移動
                 x += (float)(Math.Cos(angle) * MoveSpeed);
@@ -45,7 +51,7 @@ namespace Chiritori
         // 描画処理
         public void Draw()
         {
-            DX.DrawRotaGraphF(x, y, 1f, angle, Image.chiritoriGreen);
+            DX.DrawRotaGraphF(x, y, 1f, angle, image);
         }
     }
 }

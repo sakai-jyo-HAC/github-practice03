@@ -32,8 +32,8 @@ namespace Chiritori
             Thread.CurrentThread.Priority = ThreadPriority.Highest; // スレッドの優先度を上げておく
             // 画面リフレッシュレートと目標フレームレートが等しい場合は垂直同期を有効に、等しくない場合は垂直同期を無効にする
             DX.SetWaitVSyncFlag(DX.GetRefreshRate() == TargetFPS ? DX.TRUE : DX.FALSE);
-            DX.SetWindowText("ゲームタイトル"); // ウィンドウのタイトル
-            DX.SetGraphMode(640, 480, 32); // ウィンドウサイズ（画面解像度）の指定
+            DX.SetWindowText("ちりとりゲーム"); // ウィンドウのタイトル
+            DX.SetGraphMode(Screen.Width, Screen.Height, 32); // ウィンドウサイズ（画面解像度）の指定
             DX.ChangeWindowMode(DX.TRUE); // ウィンドウモードにする（DX.FALSEを指定するとフルスクリーンになる）
             DX.SetAlwaysRunFlag(DX.TRUE); // ウィンドウが非アクティブでも動作させる
 

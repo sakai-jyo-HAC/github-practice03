@@ -8,6 +8,7 @@ namespace Chiritori
     {
         public void Init()
         {
+            Image.Load(); // 画像の読み込み
             MyRandomcs.Init(); // MyRandomの初期化
             Input.Init(); // Inputの初期化
         }
@@ -19,6 +20,7 @@ namespace Chiritori
 
         public void Draw()
         {
+            DX.DrawGraph(0, 0, Image.woodFloor); // 背景描画
         }
     }
 }

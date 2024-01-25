@@ -65,6 +65,7 @@
     <Compile Include="DxDLLW.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Application.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="MyRandomcs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

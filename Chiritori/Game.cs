@@ -9,6 +9,7 @@ namespace Chiritori
     {
         Chiritori[] chiritories;
         Gomi gomi; // ゴミ
+        int[] scores; // 2人分のスコアを入れるための配列
 
         public void Init()
         {
@@ -18,6 +19,7 @@ namespace Chiritori
             chiritories = new Chiritori[2]; // チリトリーの配列を生成
             chiritories[0] = new Chiritori(DX.PAD_INPUT_1, Image.chiritoriGreen); // Player1生成
             chiritories[1] = new Chiritori(DX.PAD_INPUT_2, Image.chiritoriRed); // Player2生成
+            scores = new int[2]; // 配列の生成
             gomi = new Gomi(); // ゴミの生成
         }
 
@@ -39,6 +41,7 @@ namespace Chiritori
                 // 距離が50以下なら
                 if (distance <= 50)
                 {
+                    scores[i] += 1; // 吸ったプレイヤーのスコアを加算
                     gomi.ResetPosition(); // ゴミの場所をリセット
                 }
             }
@@ -52,7 +55,12 @@ namespace Chiritori
                 {
                     chiritories[i].Draw();
                 }
+            // スコアを描画
+            for (int i = 0; i < scores.Length; i++)
+            {
+                DX.DrawString(300 + 60 * i, 20, scores[i].ToString(), DX.GetColor(255, 255, 255));
             }
+        }
         }
     }
 

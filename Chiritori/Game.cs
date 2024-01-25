@@ -1,6 +1,7 @@
 ﻿using DxLibDLL;
 using MyLib; // MyRandomとかInputとか使うのに必要
 using MyLIb;
+using System; // Math使うのに必要
 
 namespace Chiritori
 {
@@ -22,6 +23,16 @@ namespace Chiritori
         {
             Input.Update(); // Inputの更新
             chiritori.Update(); // チリトリーの更新
+                                // チリトリーとゴミの距離を調べる
+            float deltaX = chiritori.x - gomi.x; // x方向の差分
+            float deltaY = chiritori.y - gomi.y; // y方向の差分
+            float distance = (float)Math.Sqrt(deltaX * deltaX + deltaY * deltaY); // 距離
+
+            // 距離が50以下なら
+            if (distance <= 50)
+            {
+                gomi.ResetPosition(); // ゴミの場所をリセット
+            }
         }
 
         public void Draw()
